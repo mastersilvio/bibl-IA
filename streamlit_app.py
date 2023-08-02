@@ -14,7 +14,7 @@ st.subheader('A sua assistente para ler a Bíblia utilizando Inteligência Artif
 content = st.text_area('Como está se sentindo?')
 
 def generate_response(input_text):
-  llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+  llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key, max_tokens=2048, stop=['\n'])
   st.info(llm(input_text))
 
 with st.form('my_form'):
